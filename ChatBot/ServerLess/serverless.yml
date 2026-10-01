@@ -1,0 +1,28 @@
+service: ${self:provider.stage}-goodIntelligence${self:provider.implementation}
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-west-2
+  stage: stg
+  implementation: Chatbot  
+  environment:
+    AWS_JWT_KEY: 7376a8db-7e3b-45e7-a673-7071a272ec46
+    
+functions:
+  Webhook:
+    handler: index.handler
+    customName: Webhook
+    name: ${self:service}${self:functions.Webhook.customName}Function
+    description:     
+    memorySize: 128 
+    timeout: 180 
+    role: arn:aws:iam::240968882250:role/LambdaExecutionRole
+	 events:
+      - http:
+          path: chatbot-subscribe
+          method: post
+          cors: true
+ 
