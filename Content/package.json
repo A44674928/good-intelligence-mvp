@@ -1,0 +1,13 @@
+{
+  "name": "good-intelligence-aws-rest-with-dynamodb",
+  "version": "1.0.0",
+  "description": "Serverless CRUD service exposing a REST HTTP interface",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "dynamodb": "^1.0.0",
+    "request": "^2.83.0",
+    "require": "^2.4.20",
+    "uuid": "^2.0.3"
+  }
+}
